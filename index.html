@@ -13,7 +13,8 @@
             --primary-color: #b93a32; /* 紅葉紅 */
             --text-color: #4a4a4a;
             --accent-color: #d4ac5d; /* 金色點綴 */
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --link-blue: #2c7bb6;
+            --card-bg: rgba(255, 255, 255, 0.95);
         }
 
         body {
@@ -64,7 +65,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-bottom: 80px; /* 給底部導航留空間 */
+            padding-bottom: 80px;
         }
 
         /* --- 頂部導航 --- */
@@ -94,7 +95,7 @@
             font-size: 0.9rem;
         }
         .weather-link {
-            color: #007bff;
+            color: var(--link-blue);
             text-decoration: none;
             font-weight: bold;
             display: flex;
@@ -127,21 +128,48 @@
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 8px;
-        }
-        .event-location {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
             display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        /* --- 地圖與導航按鈕區 --- */
+        .map-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            display: inline-flex;
             align-items: center;
             gap: 5px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-family: sans-serif;
+            transition: background 0.2s;
+        }
+        .btn-map {
+            background-color: #eef4f9;
+            color: var(--link-blue);
+            border: 1px solid #dae7f2;
+        }
+        .btn-nav {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+        .btn-map:active, .btn-nav:active {
+            transform: scale(0.95);
         }
 
         /* --- 筆記與照片 --- */
         .note-section {
             border-top: 1px dashed #ccc;
             padding-top: 10px;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         textarea {
             width: 100%;
@@ -154,9 +182,10 @@
             min-height: 40px;
             box-sizing: border-box;
             font-size: 0.9rem;
+            margin-bottom: 5px;
         }
         .photo-upload {
-            margin-top: 8px;
+            margin-top: 5px;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -244,6 +273,7 @@
             max-width: 600px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 200;
         }
         .nav-btn {
             background: transparent;
@@ -260,10 +290,6 @@
         .nav-btn.active { opacity: 1; font-weight: bold; }
         .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* --- 動畫過渡 --- */
-        .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
-        .fade-enter-from, .fade-leave-to { opacity: 0; }
-        
         .clear-data {
             text-align: center;
             margin-top: 20px;
@@ -271,7 +297,12 @@
             color: #aaa;
             text-decoration: underline;
             cursor: pointer;
+            padding-bottom: 20px;
         }
+        
+        /* --- 動畫過渡 --- */
+        .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+        .fade-enter-from, .fade-leave-to { opacity: 0; }
     </style>
 </head>
 <body>
@@ -288,9 +319,9 @@
 
     <div class="weather-banner">
         <i class="fa-solid fa-cloud-sun"></i>
-        <span>當地平均氣候參考：</span>
+        <span>天氣預報 (Tenki.jp)：</span>
         <a :href="currentDayData.weatherUrl" target="_blank" class="weather-link">
-            Tenki.jp <i class="fa-solid fa-up-right-from-square"></i>
+            查看 <i class="fa-solid fa-up-right-from-square"></i>
         </a>
     </div>
 
@@ -298,13 +329,22 @@
         <div class="timeline" :key="currentDayIndex">
             <div v-for="(event, index) in currentDayData.events" :key="index" class="event-card">
                 <div class="event-time">{{ event.time }}</div>
-                <div class="event-title">{{ event.place }}</div>
-                <div class="event-location">
-                    <i class="fa-solid fa-location-dot"></i> {{ event.place }}
+                
+                <div class="event-title">
+                    <span>{{ event.place }}</span>
+                </div>
+
+                <div class="map-actions">
+                    <a :href="getMapUrl(event.place)" target="_blank" class="action-btn btn-map">
+                        <i class="fa-solid fa-map"></i> 地圖
+                    </a>
+                    <a :href="getNavUrl(event.place)" target="_blank" class="action-btn btn-nav">
+                        <i class="fa-solid fa-location-arrow"></i> 導航
+                    </a>
                 </div>
 
                 <div class="note-section">
-                    <textarea v-model="event.userNote" placeholder="在此記錄旅行心情..." @input="saveData"></textarea>
+                    <textarea v-model="event.userNote" placeholder="心得筆記..." @input="saveData"></textarea>
                     
                     <div class="photo-upload">
                         <img v-for="(img, i) in event.photos" :src="img" class="photo-preview" @click="removePhoto(event, i)">
@@ -320,7 +360,7 @@
 
     <div class="expense-section">
         <div class="expense-header">
-            <span><i class="fa-solid fa-yen-sign"></i> 本日消費</span>
+            <span><i class="fa-solid fa-yen-sign"></i> 本日帳本</span>
             <span>合計: ¥{{ dayTotal(currentDayIndex) }}</span>
         </div>
         <ul class="expense-list">
@@ -330,23 +370,23 @@
             </li>
         </ul>
         <div class="expense-input">
-            <input v-model="newExpenseDesc" placeholder="項目 (如: 拉麵)" style="flex:2">
+            <input v-model="newExpenseDesc" placeholder="項目" style="flex:2">
             <input v-model="newExpenseCost" type="number" placeholder="金額" style="flex:1">
-            <button class="btn-add" @click="addExpense">記帳</button>
+            <button class="btn-add" @click="addExpense">記</button>
         </div>
     </div>
     
-    <div class="clear-data" @click="clearAllData">清除所有資料 (重置)</div>
+    <div class="clear-data" @click="clearAllData">清除資料並重置</div>
 
     <div class="nav-bar">
         <button class="nav-btn" @click="prevDay" :disabled="currentDayIndex === 0">
-            <i class="fa-solid fa-chevron-left"></i> 上一天
+            <i class="fa-solid fa-chevron-left"></i>
         </button>
         <button class="nav-btn" @click="goToday">
             <i class="fa-solid fa-calendar-day"></i> 今天
         </button>
         <button class="nav-btn" @click="nextDay" :disabled="currentDayIndex === days.length - 1">
-            下一天 <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
 </div>
@@ -360,12 +400,10 @@
                 currentDayIndex: 0,
                 newExpenseDesc: '',
                 newExpenseCost: '',
-                // 原始行程資料
                 days: [
                     {
                         date: "2025/12/06 (六)",
-                        region: "yamanashi", // 用於天氣判斷
-                        weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/", // 河口湖
+                        weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "06:10", place: "TSA·臺北松山機場", userNote: "", photos: [] },
                             { time: "13:00", place: "HND·東京國際機場(羽田機場)", userNote: "", photos: [] },
@@ -379,7 +417,6 @@
                     },
                     {
                         date: "2025/12/07 (日)",
-                        region: "yamanashi",
                         weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "09:00", place: "秀峰閣湖月", userNote: "", photos: [] },
@@ -394,7 +431,6 @@
                     },
                     {
                         date: "2025/12/08 (一)",
-                        region: "yamanashi",
                         weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "07:00", place: "秀峰閣湖月", userNote: "", photos: [] },
@@ -406,9 +442,9 @@
                             { time: "12:50", place: "河口湖駅", userNote: "", photos: [] },
                             { time: "14:57", place: "ＢＵＳＴＡ新宿", userNote: "", photos: [] },
                             { time: "15:10", place: "Pomme d'Amour Tokyo", userNote: "", photos: [] },
-                            { time: "16:00", place: "旭川成吉思汗 大黑屋", userNote: "", photos: [] },
+                            { time: "16:00", place: "旭川成吉思汗 大黑屋 新宿站東口店", userNote: "", photos: [] },
                             { time: "18:14", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
-                            { time: "19:02", place: "迴轉壽司 Toriton", userNote: "", photos: [] },
+                            { time: "19:02", place: "迴轉壽司 Toriton 東京晴空塔・晴空街道店", userNote: "", photos: [] },
                             { time: "20:04", place: "Qu'il fait bon", userNote: "", photos: [] },
                             { time: "20:19", place: "東京晴空塔城", userNote: "", photos: [] },
                             { time: "22:29", place: "十間橋", userNote: "", photos: [] },
@@ -418,8 +454,7 @@
                     },
                     {
                         date: "2025/12/09 (二)",
-                        region: "chiba", // 迪士尼在千葉
-                        weatherUrl: "https://tenki.jp/forecast/3/15/4510/12227/", // 浦安市
+                        weatherUrl: "https://tenki.jp/forecast/3/15/4510/12227/",
                         events: [
                             { time: "07:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
                             { time: "07:49", place: "東京迪士尼海洋", userNote: "", photos: [] },
@@ -432,31 +467,29 @@
                     },
                     {
                         date: "2025/12/10 (三)",
-                        region: "tokyo",
-                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13101/", // 東京千代田
+                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13101/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
-                            { time: "08:35", place: "立教大学本館", userNote: "", photos: [] },
+                            { time: "08:35", place: "立教大学本館（1号館/モリス館）", userNote: "", photos: [] },
                             { time: "10:00", place: "Chiikawa Park", userNote: "", photos: [] },
                             { time: "12:15", place: "yellow 池袋", userNote: "", photos: [] },
                             { time: "14:20", place: "新宿御苑", userNote: "", photos: [] },
-                            { time: "16:00", place: "The Front Room Deli", userNote: "", photos: [] },
+                            { time: "16:00", place: "The Front Room Deli Restaurant Marunouchi", userNote: "", photos: [] },
                             { time: "17:33", place: "丸の内イルミネーション", userNote: "", photos: [] },
                             { time: "18:38", place: "茅乃舍 東京站店", userNote: "", photos: [] },
-                            { time: "19:24", place: "五代目 花山烏冬", userNote: "", photos: [] },
+                            { time: "19:24", place: "五代目 花山烏冬 日本橋店", userNote: "", photos: [] },
                             { time: "21:19", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] }
                         ],
                         expenses: []
                     },
                     {
                         date: "2025/12/11 (四)",
-                        region: "tokyo",
-                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13120/", // 練馬區(哈利波特)
+                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13120/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
-                            { time: "10:00", place: "華納兄弟哈利波特影城", userNote: "", photos: [] },
+                            { time: "10:00", place: "東京華納兄弟哈利波特影城", userNote: "", photos: [] },
                             { time: "15:46", place: "Iruca Tokyo Roppongi", userNote: "", photos: [] },
-                            { time: "16:49", place: "MIDTOWN CHRISTMAS", userNote: "", photos: [] },
+                            { time: "16:49", place: "MIDTOWN CHRISTMAS イルミネーション", userNote: "", photos: [] },
                             { time: "18:05", place: "けやき坂イルミネーション", userNote: "", photos: [] },
                             { time: "19:37", place: "Shuhari Stone-ground Udon", userNote: "", photos: [] },
                             { time: "20:42", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] }
@@ -465,21 +498,20 @@
                     },
                     {
                         date: "2025/12/12 (五)",
-                        region: "kanagawa",
-                        weatherUrl: "https://tenki.jp/forecast/3/17/4610/14204/", // 鎌倉
+                        weatherUrl: "https://tenki.jp/forecast/3/17/4610/14204/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
                             { time: "09:15", place: "北鎌倉站", userNote: "", photos: [] },
                             { time: "09:20", place: "圓覺寺", userNote: "", photos: [] },
                             { time: "10:36", place: "杉養蜂園 鎌倉3號店", userNote: "", photos: [] },
                             { time: "11:00", place: "Kamakura Rokuyata", userNote: "", photos: [] },
-                            { time: "12:57", place: "七里ヶ浜海岸", userNote: "", photos: [] },
+                            { time: "12:57", place: "しちりがはま 七里ヶ浜海岸", userNote: "", photos: [] },
                             { time: "14:00", place: "bills 七里ヶ浜", userNote: "", photos: [] },
                             { time: "15:43", place: "稻村崎公園", userNote: "", photos: [] },
                             { time: "17:03", place: "鐮倉", userNote: "", photos: [] },
                             { time: "17:40", place: "橫濱車站", userNote: "", photos: [] },
-                            { time: "17:51", place: "ちいかわ焼き横浜", userNote: "", photos: [] },
-                            { time: "18:29", place: "横浜赤レンガ倉庫", userNote: "", photos: [] },
+                            { time: "17:51", place: "ちいかわ焼き横浜ワールドポーターズ店", userNote: "", photos: [] },
+                            { time: "18:29", place: "横浜赤レンガ倉庫 イベント広場", userNote: "", photos: [] },
                             { time: "19:45", place: "橫濱車站", userNote: "", photos: [] },
                             { time: "20:34", place: "洋食 Shiratsuyu", userNote: "", photos: [] },
                             { time: "21:41", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] }
@@ -488,8 +520,7 @@
                     },
                     {
                         date: "2025/12/13 (六)",
-                        region: "tokyo",
-                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13103/", // 港區
+                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13103/",
                         events: [
                             { time: "09:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
                             { time: "09:48", place: "豪徳寺 招福殿", userNote: "", photos: [] },
@@ -500,21 +531,20 @@
                             { time: "15:27", place: "大手仮休憩所（売店）", userNote: "", photos: [] },
                             { time: "16:28", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
                             { time: "17:43", place: "御台場海濱公園", userNote: "", photos: [] },
-                            { time: "17:45", place: "お台場燈光秀 YAKEI", userNote: "", photos: [] },
+                            { time: "17:45", place: "お台場イルミネーション“YAKEI”", userNote: "", photos: [] },
                             { time: "18:53", place: "KING OF THE PIRATES", userNote: "", photos: [] },
-                            { time: "20:12", place: "Aocho Oden", userNote: "", photos: [] },
+                            { time: "20:12", place: "Aocho Oden and Pot-Cooked Rice", userNote: "", photos: [] },
                             { time: "21:48", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] }
                         ],
                         expenses: []
                     },
                     {
                         date: "2025/12/14 (日)",
-                        region: "tokyo",
-                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13111/", // 大田區(羽田)
+                        weatherUrl: "https://tenki.jp/forecast/3/16/4410/13111/",
                         events: [
                             { time: "11:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
-                            { time: "11:57", place: "羽田機場花園 (午餐)", userNote: "", photos: [] },
-                            { time: "15:10", place: "HND·東京國際機場", userNote: "", photos: [] },
+                            { time: "11:57", place: "羽田機場花園(Kinkume/茶寮翠泉等)", userNote: "", photos: [] },
+                            { time: "15:10", place: "HND·東京國際機場(羽田機場)", userNote: "", photos: [] },
                             { time: "21:00", place: "TSA·臺北松山機場", userNote: "", photos: [] }
                         ],
                         expenses: []
@@ -531,6 +561,14 @@
             this.loadData();
         },
         methods: {
+            getMapUrl(place) {
+                // 產生 Google Maps 搜尋連結
+                return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+            },
+            getNavUrl(place) {
+                // 產生 Google Maps 導航連結 (目的地設為該地點)
+                return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(place)}`;
+            },
             prevDay() {
                 if(this.currentDayIndex > 0) {
                     this.currentDayIndex--;
@@ -544,8 +582,6 @@
                 }
             },
             goToday() {
-                // 簡單邏輯：跳到第一天，或根據實際日期判斷（若在2025年時可用）
-                // 這裡預設跳回第一天方便檢視
                 this.currentDayIndex = 0;
                 window.scrollTo(0,0);
             },
@@ -582,7 +618,6 @@
                 const file = event.target.files[0];
                 if (!file) return;
 
-                // 限制大小 (避免 LocalStorage 爆掉)
                 if (file.size > 2 * 1024 * 1024) {
                     alert("照片太大囉！請選用 2MB 以下的照片，以免 App 變慢。");
                     return;
@@ -590,8 +625,6 @@
 
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    // 這裡可以做 Canvas 壓縮，簡化起見直接存 Base64
-                    // 為了省空間，實際專案建議用 Canvas 縮圖，這裡直接存
                     if(!eventData.photos) eventData.photos = [];
                     eventData.photos.push(e.target.result);
                     this.saveData();
