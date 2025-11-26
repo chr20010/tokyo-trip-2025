@@ -14,12 +14,13 @@
             --text-color: #4a4a4a;
             --accent-color: #d4ac5d; /* 金色點綴 */
             --link-blue: #2c7bb6;
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-bg: rgba(255, 255, 255, 0.96);
         }
 
         body {
             font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
             background-color: var(--bg-color);
+            /* 和紙紋理 */
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
             color: var(--text-color);
             margin: 0;
@@ -82,25 +83,37 @@
         h1 { margin: 0; font-size: 1.2rem; font-weight: normal; letter-spacing: 2px; }
         .date-display { font-size: 0.9rem; opacity: 0.9; margin-top: 5px; }
 
-        /* --- 天氣區塊 --- */
+        /* --- 天氣區塊 (修正版) --- */
         .weather-banner {
             background: #fff;
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 0.95rem;
         }
-        .weather-link {
-            color: var(--link-blue);
-            text-decoration: none;
-            font-weight: bold;
+        .weather-info {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            color: #555;
+        }
+        .weather-temp {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        .weather-btn {
+            background-color: var(--link-blue);
+            color: white;
+            text-decoration: none;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* --- 行程時間軸 --- */
@@ -128,12 +141,10 @@
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            line-height: 1.4;
         }
         
-        /* --- 地圖與導航按鈕區 --- */
+        /* --- 地圖按鈕 --- */
         .map-actions {
             display: flex;
             gap: 10px;
@@ -161,9 +172,7 @@
             color: white;
             border: 1px solid var(--primary-color);
         }
-        .btn-map:active, .btn-nav:active {
-            transform: scale(0.95);
-        }
+        .btn-map:active, .btn-nav:active { transform: scale(0.95); }
 
         /* --- 筆記與照片 --- */
         .note-section {
@@ -299,7 +308,7 @@
             cursor: pointer;
             padding-bottom: 20px;
         }
-        
+
         /* --- 動畫過渡 --- */
         .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
         .fade-enter-from, .fade-leave-to { opacity: 0; }
@@ -318,10 +327,13 @@
     </header>
 
     <div class="weather-banner">
-        <i class="fa-solid fa-cloud-sun"></i>
-        <span>天氣預報 (Tenki.jp)：</span>
-        <a :href="currentDayData.weatherUrl" target="_blank" class="weather-link">
-            查看 <i class="fa-solid fa-up-right-from-square"></i>
+        <div class="weather-info">
+            <i class="fa-solid fa-cloud-sun" style="color: #f39c12;"></i>
+            <span>當地12月均溫:</span>
+            <span class="weather-temp">{{ currentDayData.averageWeather }}</span>
+        </div>
+        <a :href="currentDayData.weatherUrl" target="_blank" class="weather-btn">
+            即時預報 (Tenki.jp) <i class="fa-solid fa-up-right-from-square"></i>
         </a>
     </div>
 
@@ -330,9 +342,7 @@
             <div v-for="(event, index) in currentDayData.events" :key="index" class="event-card">
                 <div class="event-time">{{ event.time }}</div>
                 
-                <div class="event-title">
-                    <span>{{ event.place }}</span>
-                </div>
+                <div class="event-title">{{ event.place }}</div>
 
                 <div class="map-actions">
                     <a :href="getMapUrl(event.place)" target="_blank" class="action-btn btn-map">
@@ -403,6 +413,7 @@
                 days: [
                     {
                         date: "2025/12/06 (六)",
+                        averageWeather: "最高 9°C / 最低 -2°C",
                         weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "06:10", place: "TSA·臺北松山機場", userNote: "", photos: [] },
@@ -417,6 +428,7 @@
                     },
                     {
                         date: "2025/12/07 (日)",
+                        averageWeather: "最高 9°C / 最低 -2°C",
                         weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "09:00", place: "秀峰閣湖月", userNote: "", photos: [] },
@@ -431,6 +443,7 @@
                     },
                     {
                         date: "2025/12/08 (一)",
+                        averageWeather: "最高 9°C / 最低 -2°C",
                         weatherUrl: "https://tenki.jp/forecast/4/19/4920/19430/",
                         events: [
                             { time: "07:00", place: "秀峰閣湖月", userNote: "", photos: [] },
@@ -454,6 +467,7 @@
                     },
                     {
                         date: "2025/12/09 (二)",
+                        averageWeather: "最高 13°C / 最低 5°C", /* 舞濱/浦安 */
                         weatherUrl: "https://tenki.jp/forecast/3/15/4510/12227/",
                         events: [
                             { time: "07:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -467,6 +481,7 @@
                     },
                     {
                         date: "2025/12/10 (三)",
+                        averageWeather: "最高 12°C / 最低 5°C", /* 東京 */
                         weatherUrl: "https://tenki.jp/forecast/3/16/4410/13101/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -484,6 +499,7 @@
                     },
                     {
                         date: "2025/12/11 (四)",
+                        averageWeather: "最高 12°C / 最低 4°C",
                         weatherUrl: "https://tenki.jp/forecast/3/16/4410/13120/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -498,6 +514,7 @@
                     },
                     {
                         date: "2025/12/12 (五)",
+                        averageWeather: "最高 13°C / 最低 6°C", /* 鎌倉/神奈川 */
                         weatherUrl: "https://tenki.jp/forecast/3/17/4610/14204/",
                         events: [
                             { time: "08:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -520,6 +537,7 @@
                     },
                     {
                         date: "2025/12/13 (六)",
+                        averageWeather: "最高 12°C / 最低 5°C",
                         weatherUrl: "https://tenki.jp/forecast/3/16/4410/13103/",
                         events: [
                             { time: "09:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -540,6 +558,7 @@
                     },
                     {
                         date: "2025/12/14 (日)",
+                        averageWeather: "最高 13°C / 最低 5°C",
                         weatherUrl: "https://tenki.jp/forecast/3/16/4410/13111/",
                         events: [
                             { time: "11:00", place: "Tobu Hotel Levant Tokyo", userNote: "", photos: [] },
@@ -562,11 +581,11 @@
         },
         methods: {
             getMapUrl(place) {
-                // 產生 Google Maps 搜尋連結
+                // 使用 Google Maps 搜尋連結
                 return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
             },
             getNavUrl(place) {
-                // 產生 Google Maps 導航連結 (目的地設為該地點)
+                // 使用 Google Maps 導航連結
                 return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(place)}`;
             },
             prevDay() {
@@ -647,7 +666,17 @@
             loadData() {
                 const saved = localStorage.getItem('trip_japan_2025_v1');
                 if (saved) {
-                    this.days = JSON.parse(saved);
+                    // 若舊資料沒有 averageWeather 欄位，這裡可能會是 undefined
+                    // 為了保險，可以合併邏輯，但為了簡單，若您之前沒存什麼重要資料，
+                    // 建議點擊最下方的「清除資料並重置」來獲取最新的天氣資訊設定。
+                    const loadedDays = JSON.parse(saved);
+                    // 簡單合併一下，避免天氣資訊遺失
+                    this.days.forEach((day, i) => {
+                        if(loadedDays[i]) {
+                            day.events = loadedDays[i].events;
+                            day.expenses = loadedDays[i].expenses;
+                        }
+                    });
                 }
             },
             clearAllData() {
