@@ -100,7 +100,7 @@
             box-sizing: border-box;
         }
         .tab-content {
-            display: block; /* 改為直接顯示 */
+            display: block;
             padding-bottom: 40px;
         }
 
@@ -277,6 +277,7 @@
             gap: 10px;
             margin-bottom: 10px;
         }
+        .photo-preview-wrapper { position: relative; }
         .photo-preview {
             width: 80px;
             height: 80px;
@@ -442,52 +443,28 @@
                 <section class="day-content active" data-day="2025/12/06" id="day1">
                     <div class="day-header">
                         <h2 class="day-title-small">第1天 (12/06)</h2>
-                        <div class="weather-info">
-                            <i class="fa-solid fa-cloud-sun"></i> 東京/河口湖：晴時多雲 5°C~13°C
-                        </div>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京/河口湖：預報氣溫 (請自行更新)</div>
                     </div>
                     <div class="alert"><i class="fa-solid fa-plane-arrival fa-icon"></i> 抵達日 & 前往河口湖，天色已暗，專注住宿與晚餐。</div>
                     
                     <div class="timeline-item" data-start="06:10" data-end="10:00" data-id="d1-1">
                         <div class="time">06:10</div>
                         <div class="details">
-                            <a href="https://www.google.com/maps/search/?api=1&query=臺北松山機場" target="_blank" class="location-link">TSA·臺北松山機場 <i class="fa-solid fa-location-dot"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=臺北松山機場" target="_blank" class="location-link">TSA·臺北松山機場 <i class="fa-solid fa-plane-departure"></i></a>
                             <div class="note">準備登機</div>
                             <span class="duration">(估計結束: 10:00)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                            
-                            <div class="item-notes-section">
-                                <button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button>
-                                <div class="note-content">
-                                    <textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea>
-                                    <div class="photo-upload-container">
-                                        <label class="add-photo-btn">
-                                            <i class="fa-solid fa-camera"></i>
-                                            <input type="file" accept="image/*" style="display: none;" multiple class="photo-input">
-                                        </label>
-                                        </div>
-                                    <button class="save-note-btn">儲存</button>
-                                </div>
-                            </div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="13:00" data-end="15:00" data-id="d1-2">
                         <div class="time">13:00</div>
                         <div class="details">
-                            <a href="https://www.google.com/maps/search/?api=1&query=羽田機場" target="_blank" class="location-link">HND·東京國際機場 <i class="fa-solid fa-location-dot"></i></a>
-                            <div class="note">抵達、入境審查、領取行李、移動</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京國際機場(羽田機場)" target="_blank" class="location-link">HND·東京國際機場 <i class="fa-solid fa-plane-arrival"></i></a>
+                            <div class="note">抵達、入境、領取行李、移動</div>
                             <span class="duration">(估計結束: 15:00)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                            <div class="item-notes-section">
-                                <button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button>
-                                <div class="note-content">
-                                    <textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea>
-                                    <div class="photo-upload-container">
-                                        <label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label>
-                                    </div>
-                                    <button class="save-note-btn">儲存</button>
-                                </div>
-                            </div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="15:51" data-end="16:30" data-id="d1-3">
@@ -497,7 +474,7 @@
                             <div class="note">辦理入住</div>
                             <span class="duration">(估計結束: 16:30)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="16:36" data-end="17:15" data-id="d1-4">
@@ -507,7 +484,7 @@
                             <div class="note">知名拍照點 (天色已暗)</div>
                             <span class="duration">(估計結束: 17:15)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="17:24" data-end="18:00" data-id="d1-5">
@@ -516,7 +493,7 @@
                             <a href="https://www.google.com/maps/search/?api=1&query=富士吉田+金鳥居" target="_blank" class="location-link">金鳥居 <i class="fa-solid fa-torii-gate"></i></a>
                             <span class="duration">(估計結束: 18:00)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="18:11" data-end="18:20" data-id="d1-6">
@@ -525,7 +502,7 @@
                             <a href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" class="location-link">河口湖 <i class="fa-solid fa-water"></i></a>
                             <span class="duration">(估計結束: 18:20)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
                     <div class="timeline-item" data-start="18:24" data-end="23:59" data-id="d1-7">
@@ -535,7 +512,7 @@
                             <div class="note">晚餐、溫泉、休息</div>
                             <span class="duration">(本日結束)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                            <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
 
@@ -544,14 +521,10 @@
                         <div class="expense-input-group">
                             <input type="text" class="expense-input-item" placeholder="項目 (如: 午餐)">
                             <input type="number" class="expense-input-amount" placeholder="金額">
-                            <select class="expense-input-currency">
-                                <option value="JPY">JPY</option>
-                                <option value="TWD">TWD</option>
-                            </select>
+                            <select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select>
                             <button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button>
                         </div>
-                        <div class="daily-expense-list">
-                            </div>
+                        <div class="daily-expense-list"></div>
                         <div class="daily-expense-total">本日小計 (JPY): 0</div>
                     </div>
                 </section>
@@ -559,9 +532,7 @@
                 <section class="day-content" data-day="2025/12/07" id="day2">
                     <div class="day-header">
                         <h2 class="day-title-small">第2天 (12/07)</h2>
-                        <div class="weather-info">
-                            <i class="fa-solid fa-cloud"></i> 富士五湖：多雲時陰 2°C~10°C
-                        </div>
+                        <div class="weather-info"><i class="fa-solid fa-cloud"></i> 富士五湖：預報氣溫 (請自行更新)</div>
                     </div>
                     <div class="alert"><i class="fa-solid fa-car fa-icon"></i> 富士五湖周邊遊覽，注意冬季路況。</div>
                     <div class="timeline-item" data-start="09:00" data-end="10:00" data-id="d2-1">
@@ -571,23 +542,856 @@
                             <div class="note">出發</div>
                             <span class="duration">(估計結束: 10:00)</span>
                             <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
-                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="在這裡輸入筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
                     </div>
-                    <div class="daily-expense-section">
-                        <div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div>
-                        <div class="expense-input-group">
-                            <input type="text" class="expense-input-item" placeholder="項目">
-                            <input type="number" class="expense-input-amount" placeholder="金額">
-                            <select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select>
-                            <button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button>
+                    <div class="timeline-item" data-start="10:30" data-end="11:00" data-id="d2-2">
+                        <div class="time">10:30</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=長池親水公園" target="_blank" class="location-link">長池親水公園 <i class="fa-solid fa-camera"></i></a>
+                            <div class="note">拍攝逆富士</div>
+                            <span class="duration">(估計結束: 11:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
                         </div>
-                        <div class="daily-expense-list"></div>
-                        <div class="daily-expense-total">本日小計 (JPY): 0</div>
+                    </div>
+                    <div class="timeline-item" data-start="11:03" data-end="12:00" data-id="d2-3">
+                        <div class="time">11:03</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=山中湖+Noah" target="_blank" class="location-link">Noah <i class="fa-solid fa-mug-saucer"></i></a>
+                            <div class="note">湖畔咖啡廳</div>
+                            <span class="duration">(估計結束: 12:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="12:10" data-end="13:30" data-id="d2-4">
+                        <div class="time">12:10</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=山中湖+THE+PARK" target="_blank" class="location-link">THE PARK <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐</div>
+                            <span class="duration">(估計結束: 13:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="13:46" data-end="14:15" data-id="d2-5">
+                        <div class="time">13:46</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=西湖根場浜" target="_blank" class="location-link">Saiko Nenba-hama <i class="fa-solid fa-water"></i></a>
+                            <span class="duration">(估計結束: 14:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="14:27" data-end="14:50" data-id="d2-6">
+                        <div class="time">14:27</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=精進湖+石碑" target="_blank" class="location-link">精進湖 石碑 <i class="fa-solid fa-camera"></i></a>
+                            <div class="note">拍攝子抱富士</div>
+                            <span class="duration">(估計結束: 14:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:10" data-end="15:50" data-id="d2-7">
+                        <div class="time">15:10</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=本栖湖展望公園" target="_blank" class="location-link">本栖湖展望公園 <i class="fa-solid fa-mountain-sun"></i></a>
+                            <div class="note">千円札富士山取景地</div>
+                            <span class="duration">(估計結束: 15:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="16:17" data-end="23:59" data-id="d2-8">
+                        <div class="time">16:17</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=秀峰閣湖月" target="_blank" class="location-link">秀峰閣湖月 <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section">
+                        <div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div>
+                        <div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div>
+                        <div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div>
                     </div>
                 </section>
-                
-                </div>
+
+                <section class="day-content" data-day="2025/12/08" id="day3">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第3天 (12/08)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 河口湖/東京：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-suitcase-rolling fa-icon"></i> 移動日：河口湖 -> 東京，晚上行程較滿。</div>
+                    <div class="timeline-item" data-start="07:00" data-end="08:30" data-id="d3-1">
+                        <div class="time">07:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=秀峰閣湖月" target="_blank" class="location-link">秀峰閣湖月 <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">早餐、退房準備</div>
+                            <span class="duration">(估計結束: 08:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="08:41" data-end="09:15" data-id="d3-2">
+                        <div class="time">08:41</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=河口湖+長崎公園" target="_blank" class="location-link">長崎公園 <i class="fa-solid fa-tree"></i></a>
+                            <span class="duration">(估計結束: 09:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="09:26" data-end="10:00" data-id="d3-3">
+                        <div class="time">09:26</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=大石公園" target="_blank" class="location-link">大石公園 <i class="fa-solid fa-camera"></i></a>
+                            <div class="note">富士山經典視角</div>
+                            <span class="duration">(估計結束: 10:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:19" data-end="10:45" data-id="d3-4">
+                        <div class="time">10:19</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=河口湖楓葉迴廊" target="_blank" class="location-link">河口湖楓葉迴廊 <i class="fa-solid fa-leaf"></i></a>
+                            <div class="note">(此時可能已落葉)</div>
+                            <span class="duration">(估計結束: 10:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:50" data-end="11:00" data-id="d3-5">
+                        <div class="time">10:50</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=秀峰閣湖月" target="_blank" class="location-link">秀峰閣湖月 <i class="fa-solid fa-suitcase"></i></a>
+                            <div class="note">取行李</div>
+                            <span class="duration">(估計結束: 11:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="11:00" data-end="12:00" data-id="d3-6">
+                        <div class="time">11:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=河口湖+古屋炸物小店" target="_blank" class="location-link">古屋炸物小店 <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐</div>
+                            <span class="duration">(估計結束: 12:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="12:50" data-end="14:50" data-id="d3-7">
+                        <div class="time">12:50</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=河口湖駅" target="_blank" class="location-link">河口湖駅 <i class="fa-solid fa-bus"></i></a>
+                            <div class="note">搭乘巴士前往新宿</div>
+                            <span class="duration">(估計結束: 14:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="14:57" data-end="15:10" data-id="d3-8">
+                        <div class="time">14:57</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=バスタ新宿" target="_blank" class="location-link">ＢＵＳＴＡ新宿 <i class="fa-solid fa-bus-simple"></i></a>
+                            <div class="note">抵達新宿</div>
+                            <span class="duration">(估計結束: 15:10)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:10" data-end="15:50" data-id="d3-9">
+                        <div class="time">15:10</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Pomme+d'Amour+Tokyo" target="_blank" class="location-link">Pomme d'Amour Tokyo <i class="fa-solid fa-apple-whole"></i></a>
+                            <div class="note">蘋果糖專賣店</div>
+                            <span class="duration">(估計結束: 15:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="16:00" data-end="17:30" data-id="d3-10">
+                        <div class="time">16:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=旭川成吉思汗+大黑屋+新宿站東口店" target="_blank" class="location-link">旭川成吉思汗 大黑屋 <i class="fa-solid fa-fire-burner"></i></a>
+                            <div class="note">新宿站東口店 (晚餐1)</div>
+                            <span class="duration">(估計結束: 17:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="18:14" data-end="18:45" data-id="d3-11">
+                        <div class="time">18:14</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-hotel"></i></a>
+                            <div class="note">前往錦糸町飯店辦理入住</div>
+                            <span class="duration">(估計結束: 18:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="19:02" data-end="20:00" data-id="d3-12">
+                        <div class="time">19:02</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=迴轉壽司+Toriton+東京晴空塔店" target="_blank" class="location-link">迴轉壽司 Toriton <i class="fa-solid fa-fish"></i></a>
+                            <div class="note">晴空街道店 (晚餐2，需排隊)</div>
+                            <span class="duration">(估計結束: 20:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="20:04" data-end="20:15" data-id="d3-13">
+                        <div class="time">20:04</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Qu'il+fait+bon+東京晴空塔" target="_blank" class="location-link">Qu'il fait bon <i class="fa-solid fa-cake-candles"></i></a>
+                            <div class="note">知名水果塔</div>
+                            <span class="duration">(估計結束: 20:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="20:19" data-end="22:00" data-id="d3-14">
+                        <div class="time">20:19</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京晴空塔城" target="_blank" class="location-link">東京晴空塔城 <i class="fa-solid fa-shopping-bag"></i></a>
+                            <div class="note">逛街購物</div>
+                            <span class="duration">(估計結束: 22:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="22:29" data-end="23:00" data-id="d3-15">
+                        <div class="time">22:29</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=十間橋" target="_blank" class="location-link">十間橋 <i class="fa-solid fa-camera"></i></a>
+                            <div class="note">拍攝晴空塔倒影夜景</div>
+                            <span class="duration">(估計結束: 23:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="23:14" data-end="23:59" data-id="d3-16">
+                        <div class="time">23:14</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/09" id="day4">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第4天 (12/09)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京迪士尼：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-triangle-exclamation fa-icon"></i> 挑戰日：今日安排了兩個迪士尼樂園，行程極為緊湊，請評估體力。</div>
+                    <div class="timeline-item" data-start="07:00" data-end="07:40" data-id="d4-1">
+                        <div class="time">07:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-person-walking"></i></a>
+                            <div class="note">出發前往迪士尼</div>
+                            <span class="duration">(估計結束: 07:40)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="07:49" data-end="16:30" data-id="d4-2">
+                        <div class="time">07:49</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京迪士尼海洋" target="_blank" class="location-link">東京迪士尼海洋 <i class="fa-solid fa-wand-magic-sparkles"></i></a>
+                            <div class="note">上半場：DisneySea</div>
+                            <span class="duration">(估計結束: 16:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:00" data-end="21:30" data-id="d4-3">
+                        <div class="time">17:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京迪士尼樂園" target="_blank" class="location-link">東京迪士尼樂園 <i class="fa-solid fa-castle"></i></a>
+                            <div class="note">下半場：Disneyland (聖誕遊行/煙火)</div>
+                            <span class="duration">(估計結束: 21:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="21:52" data-end="22:00" data-id="d4-4">
+                        <div class="time">21:52</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-hotel"></i></a>
+                            <div class="note">返回飯店</div>
+                            <span class="duration">(估計結束: 22:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="22:00" data-end="23:00" data-id="d4-5">
+                        <div class="time">22:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Saichi" target="_blank" class="location-link">Saichi <i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="note">超市/便利商店採買</div>
+                            <span class="duration">(估計結束: 23:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="23:08" data-end="23:59" data-id="d4-6">
+                        <div class="time">23:08</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/10" id="day5">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第5天 (12/10)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京市區：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-city fa-icon"></i> 市區巡禮：池袋、新宿、丸之內點燈。</div>
+                    <div class="timeline-item" data-start="08:00" data-end="08:30" data-id="d5-1">
+                        <div class="time">08:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-person-walking"></i></a>
+                            <div class="note">出發</div>
+                            <span class="duration">(估計結束: 08:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="08:35" data-end="09:30" data-id="d5-2">
+                        <div class="time">08:35</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=立教大学本館（1号館/モリス館）" target="_blank" class="location-link">立教大学本館 <i class="fa-solid fa-building-columns"></i></a>
+                            <div class="note">參觀校園建築 (1号館/モリス館)</div>
+                            <span class="duration">(估計結束: 09:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:00" data-end="12:00" data-id="d5-3">
+                        <div class="time">10:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Chiikawa+Park" target="_blank" class="location-link">Chiikawa Park <i class="fa-solid fa-star"></i></a>
+                            <div class="note">吉伊卡哇主題樂園/商店</div>
+                            <span class="duration">(估計結束: 12:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="12:15" data-end="13:45" data-id="d5-4">
+                        <div class="time">12:15</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=yellow+池袋" target="_blank" class="location-link">yellow 池袋 <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐</div>
+                            <span class="duration">(估計結束: 13:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="14:20" data-end="15:45" data-id="d5-5">
+                        <div class="time">14:20</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=新宿御苑" target="_blank" class="location-link">新宿御苑 <i class="fa-solid fa-tree"></i></a>
+                            <div class="note">日式庭園散步 (注意冬季閉園時間)</div>
+                            <span class="duration">(估計結束: 15:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="16:00" data-end="17:15" data-id="d5-6">
+                        <div class="time">16:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Front+Room+Deli+Restaurant+Marunouchi" target="_blank" class="location-link">The Front Room Deli Restaurant <i class="fa-solid fa-mug-saucer"></i></a>
+                            <div class="note">丸之內下午茶/輕食</div>
+                            <span class="duration">(估計結束: 17:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:33" data-end="18:30" data-id="d5-7">
+                        <div class="time">17:33</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=丸の内イルミネーション" target="_blank" class="location-link">丸の内イルミネーション <i class="fa-solid fa-lightbulb"></i></a>
+                            <div class="note">丸之內聖誕點燈</div>
+                            <span class="duration">(估計結束: 18:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="18:38" data-end="19:15" data-id="d5-8">
+                        <div class="time">18:38</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=茅乃舍+東京站店" target="_blank" class="location-link">茅乃舍 東京站店 <i class="fa-solid fa-bag-shopping"></i></a>
+                            <div class="note">購買高湯包伴手禮</div>
+                            <span class="duration">(估計結束: 19:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="19:24" data-end="20:45" data-id="d5-9">
+                        <div class="time">19:24</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=五代目+花山烏冬+日本橋店" target="_blank" class="location-link">五代目 花山烏冬 日本橋店 <i class="fa-solid fa-bowl-food"></i></a>
+                            <div class="note">晚餐 (熱門排隊名店)</div>
+                            <span class="duration">(估計結束: 20:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="21:19" data-end="23:59" data-id="d5-10">
+                        <div class="time">21:19</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/11" id="day6">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第6天 (12/11)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京市區：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-hat-wizard fa-icon"></i> 哈利波特影城與六本木聖誕點燈。</div>
+                    <div class="timeline-item" data-start="08:00" data-end="09:30" data-id="d6-1">
+                        <div class="time">08:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-person-walking"></i></a>
+                            <div class="note">出發前往哈利波特影城</div>
+                            <span class="duration">(估計結束: 09:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:00" data-end="15:00" data-id="d6-2">
+                        <div class="time">10:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京華納兄弟哈利波特影城" target="_blank" class="location-link">東京華納兄弟哈利波特影城 <i class="fa-solid fa-wand-sparkles"></i></a>
+                            <div class="note">沉浸式體驗 (預計停留 4-5 小時)</div>
+                            <span class="duration">(估計結束: 15:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:46" data-end="16:30" data-id="d6-3">
+                        <div class="time">15:46</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Iruca+Tokyo+Roppongi" target="_blank" class="location-link">Iruca Tokyo Roppongi <i class="fa-solid fa-bowl-rice"></i></a>
+                            <div class="note">六本木拉麵名店 (午晚餐)</div>
+                            <span class="duration">(估計結束: 16:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="16:49" data-end="17:50" data-id="d6-4">
+                        <div class="time">16:49</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=MIDTOWN+CHRISTMAS+イルミネーション" target="_blank" class="location-link">MIDTOWN CHRISTMAS <i class="fa-solid fa-tree"></i></a>
+                            <div class="note">六本木中城聖誕點燈</div>
+                            <span class="duration">(估計結束: 17:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="18:05" data-end="19:00" data-id="d6-5">
+                        <div class="time">18:05</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=けやき坂イルミネーション" target="_blank" class="location-link">けやき坂イルミネーション <i class="fa-solid fa-lightbulb"></i></a>
+                            <div class="note">六本木櫸坂點燈</div>
+                            <span class="duration">(估計結束: 19:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="19:37" data-end="20:30" data-id="d6-6">
+                        <div class="time">19:37</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Shuhari+Stone-ground+Udon" target="_blank" class="location-link">Shuhari Stone-ground Udon <i class="fa-solid fa-bowl-food"></i></a>
+                            <div class="note">晚餐：手工烏龍麵</div>
+                            <span class="duration">(估計結束: 20:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="20:42" data-end="23:59" data-id="d6-7">
+                        <div class="time">20:42</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/12" id="day7">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第7天 (12/12)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 鎌倉/橫濱：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-map-location-dot fa-icon"></i> 鎌倉、湘南海岸與橫濱一日遊。</div>
+                    <div class="timeline-item" data-start="08:00" data-end="09:10" data-id="d7-1">
+                        <div class="time">08:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-train-subway"></i></a>
+                            <div class="note">出發前往北鎌倉</div>
+                            <span class="duration">(估計結束: 09:10)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="09:15" data-end="09:20" data-id="d7-2">
+                        <div class="time">09:15</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=北鎌倉站" target="_blank" class="location-link">北鎌倉站 <i class="fa-solid fa-location-dot"></i></a>
+                            <span class="duration">(估計結束: 09:20)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="09:20" data-end="10:20" data-id="d7-3">
+                        <div class="time">09:20</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=圓覺寺" target="_blank" class="location-link">圓覺寺 <i class="fa-solid fa-torii-gate"></i></a>
+                            <div class="note">古寺參拜</div>
+                            <span class="duration">(估計結束: 10:20)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:36" data-end="10:50" data-id="d7-4">
+                        <div class="time">10:36</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=杉養蜂園+鎌倉3號店" target="_blank" class="location-link">杉養蜂園 鎌倉3號店 <i class="fa-solid fa-store"></i></a>
+                            <div class="note">蜂蜜相關產品</div>
+                            <span class="duration">(估計結束: 10:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="11:00" data-end="12:15" data-id="d7-5">
+                        <div class="time">11:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Kamakura+Rokuyata" target="_blank" class="location-link">Kamakura Rokuyata <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐 (鎌倉六弥太)</div>
+                            <span class="duration">(估計結束: 12:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="12:57" data-end="13:45" data-id="d7-6">
+                        <div class="time">12:57</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=七里ヶ浜海岸" target="_blank" class="location-link">七里ヶ浜海岸 <i class="fa-solid fa-water"></i></a>
+                            <div class="note">湘南海岸漫步</div>
+                            <span class="duration">(估計結束: 13:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="14:00" data-end="15:30" data-id="d7-7">
+                        <div class="time">14:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=bills+七里ヶ浜" target="_blank" class="location-link">bills 七里ヶ浜 <i class="fa-solid fa-mug-saucer"></i></a>
+                            <div class="note">海景下午茶 (建議預約)</div>
+                            <span class="duration">(估計結束: 15:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:43" data-end="16:45" data-id="d7-8">
+                        <div class="time">15:43</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=稻村崎公園" target="_blank" class="location-link">稻村崎公園 <i class="fa-solid fa-mountain-sun"></i></a>
+                            <div class="note">觀賞夕陽與富士山</div>
+                            <span class="duration">(估計結束: 16:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:03" data-end="17:30" data-id="d7-9">
+                        <div class="time">17:03</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=鐮倉" target="_blank" class="location-link">鐮倉 <i class="fa-solid fa-train"></i></a>
+                            <div class="note">回到車站，準備前往橫濱</div>
+                            <span class="duration">(估計結束: 17:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:40" data-end="17:50" data-id="d7-10">
+                        <div class="time">17:40</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=橫濱車站" target="_blank" class="location-link">橫濱車站 <i class="fa-solid fa-location-dot"></i></a>
+                            <span class="duration">(估計結束: 17:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:51" data-end="18:20" data-id="d7-11">
+                        <div class="time">17:51</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=ちいかわ焼き横浜ワールドポーターズ店" target="_blank" class="location-link">ちいかわ焼き 横浜 <i class="fa-solid fa-cookie-bite"></i></a>
+                            <div class="note">吉伊卡哇燒 (World Porters店)</div>
+                            <span class="duration">(估計結束: 18:20)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="18:29" data-end="19:30" data-id="d7-12">
+                        <div class="time">18:29</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=横浜赤レンガ倉庫+イベント広場" target="_blank" class="location-link">横浜赤レンガ倉庫 <i class="fa-solid fa-gift"></i></a>
+                            <div class="note">橫濱紅磚倉庫聖誕市集</div>
+                            <span class="duration">(估計結束: 19:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="19:45" data-end="20:20" data-id="d7-13">
+                        <div class="time">19:45</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=橫濱車站" target="_blank" class="location-link">橫濱車站 <i class="fa-solid fa-train"></i></a>
+                            <div class="note">準備返回東京</div>
+                            <span class="duration">(估計結束: 20:20)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="20:34" data-end="21:30" data-id="d7-14">
+                        <div class="time">20:34</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=洋食+Shiratsuyu" target="_blank" class="location-link">洋食 Shiratsuyu <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">晚餐</div>
+                            <span class="duration">(估計結束: 21:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="21:41" data-end="23:59" data-id="d7-15">
+                        <div class="time">21:41</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/13" id="day8">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第8天 (12/13)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京市區/台場：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-cat fa-icon"></i> 豪德寺招財貓、神宮外苑與台場夜景。</div>
+                    <div class="timeline-item" data-start="09:00" data-end="09:40" data-id="d8-1">
+                        <div class="time">09:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-person-walking"></i></a>
+                            <div class="note">出發</div>
+                            <span class="duration">(估計結束: 09:40)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="09:48" data-end="10:45" data-id="d8-2">
+                        <div class="time">09:48</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=豪徳寺+招福殿" target="_blank" class="location-link">豪徳寺 招福殿 <i class="fa-solid fa-cat"></i></a>
+                            <div class="note">滿滿招財貓的神社</div>
+                            <span class="duration">(估計結束: 10:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="10:56" data-end="11:15" data-id="d8-3">
+                        <div class="time">10:56</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Mahorodou+Sougetsu" target="_blank" class="location-link">Mahorodou Sougetsu <i class="fa-solid fa-cookie"></i></a>
+                            <div class="note">和菓子店</div>
+                            <span class="duration">(估計結束: 11:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="11:24" data-end="11:50" data-id="d8-4">
+                        <div class="time">11:24</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=RARASAND" target="_blank" class="location-link">RARASAND <i class="fa-solid fa-bread-slice"></i></a>
+                            <div class="note">三明治店</div>
+                            <span class="duration">(估計結束: 11:50)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="12:00" data-end="13:15" data-id="d8-5">
+                        <div class="time">12:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=canteen+kado" target="_blank" class="location-link">canteen kado <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐</div>
+                            <span class="duration">(估計結束: 13:15)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="13:58" data-end="15:00" data-id="d8-6">
+                        <div class="time">13:58</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=明治神宮外苑銀杏林" target="_blank" class="location-link">明治神宮外苑銀杏林 <i class="fa-solid fa-tree"></i></a>
+                            <div class="note">(此時可能已落葉，觀賞街景)</div>
+                            <span class="duration">(估計結束: 15:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:27" data-end="16:00" data-id="d8-7">
+                        <div class="time">15:27</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=大手仮休憩所（売店）" target="_blank" class="location-link">大手仮休憩所（売店） <i class="fa-solid fa-store"></i></a>
+                            <div class="note">皇居周邊休息/賣店</div>
+                            <span class="duration">(估計結束: 16:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="16:28" data-end="17:30" data-id="d8-8">
+                        <div class="time">16:28</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-hotel"></i></a>
+                            <div class="note">回飯店稍作休息/整理</div>
+                            <span class="duration">(估計結束: 17:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:43" data-end="18:40" data-id="d8-9">
+                        <div class="time">17:43</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=御台場海濱公園" target="_blank" class="location-link">御台場海濱公園 <i class="fa-solid fa-water"></i></a>
+                            <div class="note">台場夜景、自由女神像</div>
+                            <span class="duration">(估計結束: 18:40)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="17:45" data-end="18:40" data-id="d8-10">
+                        <div class="time">17:45</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=お台場イルミネーション“YAKEI”" target="_blank" class="location-link">お台場イルミネーション <i class="fa-solid fa-lightbulb"></i></a>
+                            <div class="note">“YAKEI” 點燈</div>
+                            <span class="duration">(估計結束: 18:40)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="18:53" data-end="20:00" data-id="d8-11">
+                        <div class="time">18:53</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=KING+OF+THE+PIRATES" target="_blank" class="location-link">KING OF THE PIRATES <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">主題餐廳晚餐</div>
+                            <span class="duration">(估計結束: 20:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="20:12" data-end="21:30" data-id="d8-12">
+                        <div class="time">20:12</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Aocho+Oden+and+Pot-Cooked+Rice" target="_blank" class="location-link">Aocho Oden <i class="fa-solid fa-bowl-food"></i></a>
+                            <div class="note">宵夜/續攤：關東煮與釜飯</div>
+                            <span class="duration">(估計結束: 21:30)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="21:48" data-end="23:59" data-id="d8-13">
+                        <div class="time">21:48</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-bed"></i></a>
+                            <div class="note">返回飯店休息</div>
+                            <span class="duration">(本日結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+                <section class="day-content" data-day="2025/12/14" id="day9">
+                    <div class="day-header">
+                        <h2 class="day-title-small">第9天 (12/14)</h2>
+                        <div class="weather-info"><i class="fa-solid fa-cloud-sun"></i> 東京市區/機場：預報氣溫 (請自行更新)</div>
+                    </div>
+                    <div class="alert"><i class="fa-solid fa-plane-departure fa-icon"></i> 返程日：最後採購與前往機場。</div>
+                    <div class="timeline-item" data-start="11:00" data-end="11:45" data-id="d9-1">
+                        <div class="time">11:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tobu+Hotel+Levant+Tokyo" target="_blank" class="location-link">Tobu Hotel Levant Tokyo <i class="fa-solid fa-hotel"></i></a>
+                            <div class="note">辦理退房，前往機場</div>
+                            <span class="duration">(估計結束: 11:45)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="11:57" data-end="14:00" data-id="d9-2">
+                        <div class="time">11:57</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=羽田機場花園" target="_blank" class="location-link">羽田機場花園餐廳區 <i class="fa-solid fa-utensils"></i></a>
+                            <div class="note">午餐與最後採購 (Kinkume/茶寮翠泉/鳥開總本家/花山烏冬等)</div>
+                            <span class="duration">(估計結束: 14:00)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="15:10" data-end="17:10" data-id="d9-3">
+                        <div class="time">15:10</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京國際機場(羽田機場)" target="_blank" class="location-link">HND·東京國際機場 <i class="fa-solid fa-plane"></i></a>
+                            <div class="note">辦理登機、出境手續</div>
+                            <span class="duration">(估計結束: 17:10)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-start="21:00" data-end="21:45" data-id="d9-4">
+                        <div class="time">21:00</div>
+                        <div class="details">
+                            <a href="https://www.google.com/maps/search/?api=1&query=臺北松山機場" target="_blank" class="location-link">TSA·臺北松山機場 <i class="fa-solid fa-house"></i></a>
+                            <div class="note">抵達溫暖的家</div>
+                            <span class="duration">(旅程結束)</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div><div class="progress-text"></div>
+                             <div class="item-notes-section"><button class="note-toggle-btn"><i class="fa-solid fa-pen-to-square"></i> 筆記與照片</button><div class="note-content"><textarea class="note-textarea" placeholder="筆記..."></textarea><div class="photo-upload-container"><label class="add-photo-btn"><i class="fa-solid fa-camera"></i><input type="file" accept="image/*" style="display: none;" multiple class="photo-input"></label></div><button class="save-note-btn">儲存</button></div></div>
+                        </div>
+                    </div>
+                     <div class="daily-expense-section"><div class="daily-expense-title"><i class="fa-solid fa-coins"></i> 今日消費紀錄</div><div class="expense-input-group"><input type="text" class="expense-input-item" placeholder="項目"><input type="number" class="expense-input-amount" placeholder="金額"><select class="expense-input-currency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select><button class="add-expense-btn-small"><i class="fa-solid fa-plus"></i></button></div><div class="daily-expense-list"></div><div class="daily-expense-total">本日小計 (JPY): 0</div></div>
+                </section>
+
+            </div>
             <button id="back-to-top" title="回到頂部"><i class="fa-solid fa-arrow-up"></i></button>
         </section>
     </main>
@@ -608,7 +1412,6 @@
             daySections.forEach((section, index) => {
                 const dayDate = section.getAttribute('data-day');
                 const button = document.createElement('button');
-                // 這裡需要抓取新的標題結構
                 const titleParts = section.querySelector('.day-title-small').innerText.split(' ');
                 button.innerText = titleParts[0] + ' ' + titleParts[1];
                 
@@ -703,7 +1506,6 @@
             });
 
             // --- 4. 整合式筆記與照片功能 ---
-            // 初始化資料
             let itemNotes = JSON.parse(localStorage.getItem('tripItemNotes')) || {};
 
             document.querySelectorAll('.timeline-item').forEach(item => {
@@ -718,19 +1520,16 @@
                 const saveBtn = item.querySelector('.save-note-btn');
                 let photos = itemNotes[itemId]?.photos || [];
 
-                // 載入已儲存的筆記和照片
                 if (itemNotes[itemId]) {
                     textarea.value = itemNotes[itemId].text || '';
                     renderPhotos(photos, photoContainer);
                 }
 
-                // 切換顯示/隱藏
                 toggleBtn.addEventListener('click', () => {
                     const isActive = noteContent.classList.toggle('active');
                     toggleBtn.innerHTML = isActive ? '<i class="fa-solid fa-chevron-up"></i> 收起筆記' : '<i class="fa-solid fa-pen-to-square"></i> 筆記與照片';
                 });
 
-                // 處理照片上傳
                 photoInput.addEventListener('change', (e) => {
                     const files = Array.from(e.target.files);
                     files.forEach(file => {
@@ -740,15 +1539,14 @@
                         }
                         const reader = new FileReader();
                         reader.onload = (event) => {
-                            photos.push(event.target.result); // 儲存 Base64
+                            photos.push(event.target.result);
                             renderPhotos(photos, photoContainer);
                         };
                         reader.readAsDataURL(file);
                     });
-                    photoInput.value = ''; // 清空 input
+                    photoInput.value = '';
                 });
 
-                // 儲存按鈕
                 saveBtn.addEventListener('click', () => {
                     itemNotes[itemId] = {
                         text: textarea.value,
@@ -757,7 +1555,7 @@
                     try {
                         localStorage.setItem('tripItemNotes', JSON.stringify(itemNotes));
                         alert('筆記與照片已儲存！');
-                        noteContent.classList.remove('active'); // 儲存後收起
+                        noteContent.classList.remove('active');
                         toggleBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> 筆記與照片';
                     } catch (e) {
                         alert('儲存失敗！可能是照片太多或太大，超過了瀏覽器限制。請嘗試刪除一些照片。');
@@ -766,7 +1564,6 @@
             });
 
             function renderPhotos(photoArray, container) {
-                // 清除舊預覽，保留上傳按鈕
                 constPreviews = container.querySelectorAll('.photo-preview-wrapper');
                 constPreviews.forEach(p => p.remove());
                 
@@ -849,15 +1646,13 @@
                     }
                 });
 
-                renderDailyExpenses(); // 初始化載入
+                renderDailyExpenses();
             });
 
-            // 全域刪除記帳函式 (為了讓 onclick 呼叫得到)
             window.deleteDailyExpense = function(dayId, index) {
                 if (confirm('確定要刪除這筆紀錄嗎？')) {
                     dailyExpenses[dayId].splice(index, 1);
                     localStorage.setItem('tripDailyExpenses', JSON.stringify(dailyExpenses));
-                    // 重新渲染該天數的列表
                     const daySection = document.getElementById(dayId);
                     const listContainer = daySection.querySelector('.daily-expense-list');
                     const totalDisplay = daySection.querySelector('.daily-expense-total');
